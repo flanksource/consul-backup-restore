@@ -17,3 +17,5 @@ s3cmd --host=$AWS_ENDPOINT \
       get s3://$BACKUP_BUCKET/$BACKUP_PATH$RESTORE_FILENAME $BACKUP_FILE
 
 consul snapshot restore -http-addr=$CONSUL_ADDR $BACKUP_FILE
+
+rm $BACKUP_FILE

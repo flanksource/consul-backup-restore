@@ -19,3 +19,5 @@ s3cmd --host=$AWS_ENDPOINT \
       --host-bucket=$AWS_ENDPOINT/$BACKUP_BUCKET $SSL_OPTS \
       --acl-private \
       put $BACKUP_FILE s3://$BACKUP_BUCKET/$BACKUP_PATH$FILENAME
+
+rm $BACKUP_FILE
