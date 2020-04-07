@@ -12,9 +12,9 @@ if [[ "$AWS_ENDPOINT" =~ ^http\:\/\/ ]]; then
 fi
 
 s3cmd --host=$AWS_ENDPOINT \
-      --host-bucket=$AWS_ENDPOINT/$BACKUP_BUCKET $SSL_OPTS \
+      --host-bucket=$AWS_ENDPOINT/$RESTORE_BUCKET $SSL_OPTS \
       --acl-private \
-      get s3://$BACKUP_BUCKET/$BACKUP_PATH$RESTORE_FILENAME $BACKUP_FILE
+      get $RESTORE_URL $BACKUP_FILE
 
 consul snapshot restore -http-addr=$CONSUL_ADDR $BACKUP_FILE
 
